@@ -3,26 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automethemoney | GitHub Pages 브로셔</title>
+    <title>Automethemoney | GitHub Pages 서비스 소개</title>
     <meta
       name="description"
-      content="Google Stitch UI 컨셉으로 제작된 Automethemoney 홍보용 정적 GitHub Pages 브로셔"
+      content="Google Stitch 기반 UI를 적용한 Automethemoney GitHub Pages 서비스 소개 브로셔"
     />
-    <meta name="theme-color" content="#0b1324" />
+    <meta name="theme-color" content="#EAF6FF" />
     <style>
       :root {
-        --bg: #f2f5fa;
-        --surface: #ffffff;
-        --ink-strong: #0b1324;
-        --ink: #22314d;
-        --ink-soft: #5c6c89;
-        --line: #d9e2ef;
-        --brand: #0f766e;
-        --brand-strong: #115e59;
-        --accent: #e8fbf8;
-        --warn: #fff8e6;
-        --radius-xl: 24px;
-        --radius-lg: 16px;
+        --bg-main: #eaf6ff;
+        --bg-soft: #f3fbff;
+        --bg-brown-1: #f6ebdd;
+        --bg-brown-2: #e7d2ba;
+        --text-strong: #2b3a42;
+        --text-normal: #4a5a66;
+        --line: #cbdceb;
+        --point-sky: #7fb3d5;
+        --point-brown: #c69c72;
+        --white: #ffffff;
       }
 
       * {
@@ -37,258 +35,253 @@
 
       body {
         font-family: "Pretendard", "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-        color: var(--ink);
+        color: var(--text-normal);
         background:
-          radial-gradient(circle at 15% 0%, #d4f3ff 0%, transparent 30%),
-          radial-gradient(circle at 100% 10%, #ffeccc 0%, transparent 26%),
-          var(--bg);
+          radial-gradient(circle at 12% 0%, #d8efff 0%, transparent 34%),
+          radial-gradient(circle at 95% 8%, #f2deca 0%, transparent 28%),
+          var(--bg-main);
         line-height: 1.6;
       }
 
-      .wrap {
-        width: min(1140px, calc(100% - 32px));
+      .container {
+        width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
       }
 
-      .top {
+      .topbar {
         position: sticky;
         top: 0;
-        z-index: 50;
-        backdrop-filter: blur(10px);
-        background: rgba(242, 245, 250, 0.88);
+        z-index: 20;
         border-bottom: 1px solid var(--line);
+        background: rgba(243, 251, 255, 0.92);
+        backdrop-filter: blur(8px);
       }
 
-      .top-inner {
+      .topbar-inner {
         min-height: 68px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
+        gap: 12px;
       }
 
-      .logo {
-        font-size: 19px;
+      .brand {
+        color: var(--text-strong);
+        font-size: 20px;
         font-weight: 800;
         letter-spacing: -0.02em;
-        color: var(--ink-strong);
       }
 
-      .chip-row {
+      .badge-group {
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
-        justify-content: flex-end;
       }
 
-      .chip {
+      .badge {
         padding: 6px 10px;
         border-radius: 999px;
         font-size: 12px;
         font-weight: 700;
-        border: 1px solid transparent;
       }
 
-      .chip-brand {
-        background: #d1fae5;
-        color: #065f46;
-        border-color: #a7f3d0;
+      .badge-sky {
+        color: #33536a;
+        background: #deeffb;
+        border: 1px solid #bdddf2;
       }
 
-      .chip-safe {
-        background: #ecfeff;
-        color: #155e75;
-        border-color: #bae6fd;
+      .badge-brown {
+        color: #6f4e2b;
+        background: #f7ebdf;
+        border: 1px solid #ebd3bb;
       }
 
       .hero {
-        padding: 70px 0 28px;
+        padding: 72px 0 34px;
       }
 
-      .hero-layout {
+      .hero-grid {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 18px;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
       }
 
       h1 {
         margin: 0 0 16px;
-        color: var(--ink-strong);
-        font-size: clamp(31px, 5.8vw, 58px);
+        color: var(--text-strong);
+        font-size: clamp(30px, 5.6vw, 56px);
         line-height: 1.08;
-        letter-spacing: -0.045em;
+        letter-spacing: -0.04em;
       }
 
-      .hero-lead {
+      .lead {
         margin: 0;
-        color: var(--ink-soft);
-        font-size: clamp(16px, 2.1vw, 20px);
+        font-size: clamp(16px, 2vw, 20px);
+        color: var(--text-normal);
       }
 
-      .surface {
-        background: var(--surface);
+      .panel {
+        background: var(--white);
         border: 1px solid var(--line);
-        border-radius: var(--radius-xl);
-        padding: 20px;
-        box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 6px 14px rgba(74, 90, 102, 0.08);
       }
 
-      .matrix {
+      .facts {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
 
-      .cell {
-        border: 1px solid var(--line);
+      .fact {
+        border: 1px solid #d3e3f0;
         border-radius: 12px;
-        padding: 12px;
+        padding: 10px;
+        background: #f9fcff;
       }
 
-      .cell .k {
-        display: block;
+      .fact-key {
         font-size: 12px;
-        color: var(--ink-soft);
+        color: #61798a;
       }
 
-      .cell .v {
-        display: block;
+      .fact-value {
         margin-top: 4px;
-        font-size: 17px;
+        color: var(--text-strong);
+        font-size: 16px;
         font-weight: 800;
-        color: var(--ink-strong);
       }
 
-      .note {
+      .fact-note {
         margin-top: 10px;
-        border-radius: 12px;
-        border: 1px solid #bbf7d0;
-        background: #ecfdf5;
-        color: #166534;
-        font-weight: 700;
         padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid #e6cfb5;
+        background: var(--bg-brown-1);
+        color: #70553a;
+        font-weight: 700;
       }
 
       .section {
         padding: 14px 0;
       }
 
-      .section-title {
+      .section h2 {
         margin: 0 0 12px;
-        color: var(--ink-strong);
-        font-size: clamp(23px, 4vw, 32px);
+        color: var(--text-strong);
+        font-size: clamp(22px, 4vw, 30px);
         letter-spacing: -0.03em;
       }
 
-      .cards {
+      .card-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
       }
 
       .card {
-        background: var(--surface);
+        background: var(--white);
         border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
+        border-radius: 14px;
         padding: 16px;
+        box-shadow: 0 5px 10px rgba(74, 90, 102, 0.05);
       }
 
       .card h3 {
         margin: 0 0 6px;
-        color: var(--ink-strong);
+        color: var(--text-strong);
         font-size: 18px;
       }
 
       .card p {
         margin: 0;
-        color: var(--ink-soft);
       }
 
-      .flow {
+      .process-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
       }
 
       .step {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 14px;
+        border: 1px solid #d8e6f2;
+        border-radius: 12px;
+        padding: 12px;
+        background: #f6fbff;
       }
 
-      .step-id {
+      .step-no {
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
         width: 28px;
         height: 28px;
         border-radius: 999px;
-        align-items: center;
-        justify-content: center;
+        border: 1px solid #afd0e5;
+        background: #e6f4ff;
+        color: #3f667f;
         font-size: 12px;
         font-weight: 800;
-        color: var(--brand-strong);
-        background: var(--accent);
-        border: 1px solid #a7f3d0;
       }
 
       .step p {
         margin: 10px 0 0;
-        color: var(--ink-soft);
       }
 
-      .banner {
-        margin-top: 14px;
-        border: 1px solid #fde68a;
-        background: var(--warn);
-        color: #92400e;
+      .trust-box {
+        margin-top: 12px;
+        border: 1px solid #ddc2a5;
+        background: linear-gradient(135deg, var(--bg-brown-1) 0%, var(--bg-brown-2) 100%);
         border-radius: 14px;
-        padding: 13px;
+        padding: 14px;
+        color: #5e452f;
         font-weight: 700;
       }
 
       .cta {
-        margin: 18px 0 38px;
-        padding: 22px;
-        border-radius: 18px;
-        border: 1px solid #99f6e4;
-        background: linear-gradient(120deg, #ccfbf1 0%, #ecfeff 100%);
+        margin: 18px 0 36px;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #bfdced;
+        background: linear-gradient(120deg, #f3fbff 0%, #e8f4ff 100%);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 14px;
+        gap: 12px;
       }
 
       .cta strong {
-        color: #134e4a;
-        font-size: 19px;
+        color: var(--text-strong);
+        font-size: 18px;
         letter-spacing: -0.02em;
       }
 
-      .btn {
+      .cta a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         height: 44px;
         padding: 0 16px;
         border-radius: 10px;
-        border: 0;
-        cursor: pointer;
-        background: var(--brand);
+        border: 1px solid #b98f68;
+        text-decoration: none;
+        background: var(--point-brown);
         color: #ffffff;
         font-weight: 800;
-        text-decoration: none;
       }
 
       .footer {
-        margin: 0 0 32px;
-        color: var(--ink-soft);
+        margin: 0 0 30px;
+        color: #647581;
         font-size: 14px;
       }
 
       .reveal {
         opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.45s ease, transform 0.45s ease;
+        transform: translateY(8px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
       }
 
       .reveal.show {
@@ -297,15 +290,15 @@
       }
 
       @media (max-width: 980px) {
-        .hero-layout {
+        .hero-grid {
           grid-template-columns: 1fr;
         }
 
-        .cards {
+        .card-grid {
           grid-template-columns: 1fr;
         }
 
-        .flow {
+        .process-grid {
           grid-template-columns: 1fr 1fr;
         }
 
@@ -316,161 +309,158 @@
       }
 
       @media (max-width: 620px) {
-        .top-inner {
+        .topbar-inner {
           min-height: 60px;
         }
 
-        .chip-row {
+        .badge-group {
           display: none;
         }
 
-        .matrix {
+        .facts {
           grid-template-columns: 1fr;
         }
 
-        .flow {
+        .process-grid {
           grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <header class="top">
-      <div class="wrap top-inner">
-        <div class="logo">Automethemoney Brochure</div>
-        <div class="chip-row">
-          <span class="chip chip-brand">Google Stitch UI</span>
-          <span class="chip chip-safe">API 연동 없음</span>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">Automethemoney Service Brochure</div>
+        <div class="badge-group">
+          <span class="badge badge-sky">GitHub Pages</span>
+          <span class="badge badge-brown">Google Stitch UI</span>
         </div>
       </div>
     </header>
 
-    <main class="wrap hero">
-      <section class="hero-layout reveal">
+    <main class="container hero">
+      <section class="hero-grid reveal">
         <div>
-          <h1>홍보용 브로셔를<br />가장 안정적으로 운영하는 방식</h1>
-          <p class="hero-lead">
-            Automethemoney는 GitHub Pages의 `docs` 폴더만 사용합니다.
-            Google Stitch로 만든 UI를 정적 HTML/CSS로 반영하고, 백엔드/API 없이
-            빠르게 공개 페이지를 운영합니다.
+          <h1>GitHub Pages로 제공하는<br />가볍고 명확한 서비스 소개</h1>
+          <p class="lead">
+            이 페이지는 일반 방문자가 서비스 가치를 빠르게 이해하도록 구성한 브로셔입니다.
+            Google Stitch로 만든 UI를 정적으로 반영해 안정적인 공개 페이지를 운영합니다.
           </p>
         </div>
-        <div class="surface">
-          <div class="matrix">
-            <div class="cell">
-              <span class="k">사이트 유형</span>
-              <span class="v">브로셔 전용</span>
+        <aside class="panel">
+          <div class="facts">
+            <div class="fact">
+              <span class="fact-key">서비스 형태</span>
+              <span class="fact-value">소개형 브로셔</span>
             </div>
-            <div class="cell">
-              <span class="k">배포 방식</span>
-              <span class="v">GitHub Pages</span>
+            <div class="fact">
+              <span class="fact-key">공개 채널</span>
+              <span class="fact-value">GitHub Pages</span>
             </div>
-            <div class="cell">
-              <span class="k">콘텐츠 위치</span>
-              <span class="v">`docs/index.html`</span>
+            <div class="fact">
+              <span class="fact-key">디자인 반영</span>
+              <span class="fact-value">Google Stitch UI</span>
             </div>
-            <div class="cell">
-              <span class="k">자동화 방식</span>
-              <span class="v">WSL cron</span>
+            <div class="fact">
+              <span class="fact-key">기술 구성</span>
+              <span class="fact-value">정적 HTML/CSS</span>
             </div>
           </div>
-          <div class="note">운영 기준: 정적 파일만 유지, 액션/서버 미사용</div>
+          <div class="fact-note">외부 API 없이도 전달력 있는 서비스 설명 페이지를 유지합니다.</div>
+        </aside>
+      </section>
+
+      <section class="section reveal">
+        <h2>왜 GitHub Pages 방식이 유리한가</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>빠른 전달</h3>
+            <p>페이지 목적을 서비스 설명에 고정해 방문자가 핵심 내용을 바로 이해합니다.</p>
+          </article>
+          <article class="card">
+            <h3>안정적 운영</h3>
+            <p>정적 파일 중심으로 구성해 운영 복잡도를 낮추고 장애 요인을 줄입니다.</p>
+          </article>
+          <article class="card">
+            <h3>쉬운 갱신</h3>
+            <p>`docs/index.html`만 수정하면 최신 소개 문구와 UI를 빠르게 반영할 수 있습니다.</p>
+          </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <h2 class="section-title">핵심 가치</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>빠른 수정</h3>
-            <p>문구/섹션/디자인 변경을 `index.html` 한 파일 기준으로 즉시 반영합니다.</p>
-          </article>
-          <article class="card">
-            <h3>낮은 장애 위험</h3>
-            <p>외부 API, 인증, 서버 장애 요소를 제거해 노출 페이지 안정성을 높입니다.</p>
-          </article>
-          <article class="card">
-            <h3>운영 단순화</h3>
-            <p>배포 경로를 `main + /docs`로 고정해 유지보수 비용을 최소화합니다.</p>
-          </article>
+        <h2>Stitch UI 반영 프로세스</h2>
+        <div class="process-grid">
+          <div class="step">
+            <span class="step-no">01</span>
+            <p>Google Stitch에서 서비스 소개 UI를 생성합니다.</p>
+          </div>
+          <div class="step">
+            <span class="step-no">02</span>
+            <p>생성 결과를 정적 HTML/CSS 형태로 정리합니다.</p>
+          </div>
+          <div class="step">
+            <span class="step-no">03</span>
+            <p>`docs/index.html`에 카피와 레이아웃을 반영합니다.</p>
+          </div>
+          <div class="step">
+            <span class="step-no">04</span>
+            <p>`git push`로 GitHub Pages에 즉시 공개합니다.</p>
+          </div>
         </div>
       </section>
 
       <section class="section reveal">
-        <h2 class="section-title">Google Stitch 반영 플로우</h2>
-        <div class="flow">
-          <div class="step">
-            <span class="step-id">01</span>
-            <p>Google Stitch에서 브로셔 UI 생성</p>
-          </div>
-          <div class="step">
-            <span class="step-id">02</span>
-            <p>정적 HTML/CSS 형태로 결과 정리</p>
-          </div>
-          <div class="step">
-            <span class="step-id">03</span>
-            <p>`docs/index.html`에 디자인/카피 반영</p>
-          </div>
-          <div class="step">
-            <span class="step-id">04</span>
-            <p>`git push` 후 GitHub Pages 자동 공개</p>
-          </div>
-        </div>
-        <div class="banner">
-          현재 구성은 홍보용에 최적화되어 있으며, API 연동 없이도 디자인 전달력이 유지됩니다.
-        </div>
-      </section>
-
-      <section class="section reveal">
-        <h2 class="section-title">운영 규칙</h2>
-        <div class="cards">
+        <h2>신뢰 포인트</h2>
+        <div class="card-grid">
           <article class="card">
-            <h3>콘텐츠 범위</h3>
-            <p>랜딩 소개, 가치 제안, 사용 흐름, CTA 중심 구성만 유지합니다.</p>
+            <h3>구성 단순화</h3>
+            <p>배포 경로를 단순하게 유지해 운영 리스크를 최소화합니다.</p>
           </article>
           <article class="card">
-            <h3>기술 범위</h3>
-            <p>HTML/CSS/소량 JS만 사용하고, 프레임워크/런타임 의존을 두지 않습니다.</p>
+            <h3>메시지 일관성</h3>
+            <p>방문자에게 노출되는 콘텐츠를 서비스 가치 전달 중심으로 고정합니다.</p>
           </article>
           <article class="card">
-            <h3>자동화 범위</h3>
-            <p>GitHub Actions 대신 WSL cron으로 정적 변경 커밋/푸시만 수행합니다.</p>
+            <h3>운영 지속성</h3>
+            <p>디자인과 문구 교체가 쉬워 홍보 업데이트를 빠르게 반복할 수 있습니다.</p>
           </article>
         </div>
+        <div class="trust-box">운영 정책: GitHub Pages 단일 채널 + Stitch UI 반영 + 정적 브로셔 유지</div>
       </section>
 
       <section class="cta reveal">
-        <strong>다음 수정도 동일 방식으로 진행: Stitch UI 생성 → `docs/index.html` 반영 → 배포</strong>
-        <a class="btn" href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">저장소 열기</a>
+        <strong>서비스 상세와 업데이트 이력은 저장소에서 확인할 수 있습니다.</strong>
+        <a href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">GitHub 저장소 이동</a>
       </section>
 
-      <p class="footer">Automethemoney · Static GitHub Pages Brochure · Built for clarity and stability</p>
+      <p class="footer">Automethemoney · GitHub Pages Service Brochure · Sky Blue + Light Brown UI</p>
     </main>
 
     <script>
       (function () {
-        var els = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) {
-          for (var i = 0; i < els.length; i++) {
-            els[i].classList.add('show');
+        var items = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+          for (var i = 0; i < items.length; i++) {
+            items[i].classList.add("show");
           }
           return;
         }
 
-        var observer = new IntersectionObserver(
+        var io = new IntersectionObserver(
           function (entries) {
-            for (var i = 0; i < entries.length; i++) {
-              if (entries[i].isIntersecting) {
-                entries[i].target.classList.add('show');
-                observer.unobserve(entries[i].target);
+            for (var j = 0; j < entries.length; j++) {
+              if (entries[j].isIntersecting) {
+                entries[j].target.classList.add("show");
+                io.unobserve(entries[j].target);
               }
             }
           },
           { threshold: 0.12 }
         );
 
-        for (var j = 0; j < els.length; j++) {
-          observer.observe(els[j]);
+        for (var k = 0; k < items.length; k++) {
+          io.observe(items[k]);
         }
       })();
     </script>
