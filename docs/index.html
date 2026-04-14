@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automethemoney 포트폴리오 | 페이퍼 트레이딩 자동화</title>
+    <title>Automethemoney 포트폴리오 | 기술 면접관용 요약</title>
     <meta
       name="description"
-      content="GitHub-hosted Actions + Supabase + Vercel로 구축한 페이퍼 트레이딩 자동화 포트폴리오"
+      content="GitHub-hosted Actions + Supabase + Vercel로 구현한 페이퍼 트레이딩 자동화 시스템 포트폴리오"
     />
     <meta name="theme-color" content="#EAF6FF" />
     <style>
@@ -30,8 +30,8 @@
         font-family: "Pretendard", "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
         color: var(--text-normal);
         background:
-          radial-gradient(circle at 10% 0%, #D8EEFF 0%, transparent 34%),
-          radial-gradient(circle at 95% 8%, #F2DEC9 0%, transparent 28%),
+          radial-gradient(circle at 12% 0%, #D8EEFF 0%, transparent 32%),
+          radial-gradient(circle at 96% 10%, #F2DEC9 0%, transparent 28%),
           var(--bg-main);
         line-height: 1.65;
       }
@@ -92,19 +92,19 @@
       }
 
       .hero {
-        padding: 72px 0 34px;
+        padding: 72px 0 30px;
       }
 
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1.12fr 0.88fr;
         gap: 16px;
       }
 
       h1 {
-        margin: 0 0 14px;
+        margin: 0 0 12px;
         color: var(--text-strong);
-        font-size: clamp(30px, 5.5vw, 56px);
+        font-size: clamp(30px, 5.4vw, 54px);
         line-height: 1.08;
         letter-spacing: -0.04em;
       }
@@ -112,6 +112,16 @@
       .lead {
         margin: 0;
         font-size: clamp(16px, 2vw, 20px);
+      }
+
+      .hero-role {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid #D9C2AA;
+        background: var(--bg-brown-1);
+        color: #664A2E;
+        font-weight: 700;
       }
 
       .panel {
@@ -152,8 +162,8 @@
         padding: 10px 12px;
         border-radius: 12px;
         border: 1px solid #E6CFB5;
-        background: var(--bg-brown-1);
-        color: #71563A;
+        background: #FFF8F1;
+        color: #70553A;
         font-weight: 700;
       }
 
@@ -166,64 +176,76 @@
         letter-spacing: -0.03em;
       }
 
-      .card-grid {
+      .step-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .card {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 16px;
-        box-shadow: 0 5px 10px rgba(74, 90, 102, 0.05);
-      }
-
-      .card h3 {
-        margin: 0 0 6px;
-        color: var(--text-strong);
-        font-size: 18px;
-      }
-
-      .card p { margin: 0; }
-
-      .flow-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         gap: 10px;
       }
 
-      .flow {
-        border: 1px solid #D8E6F2;
-        border-radius: 12px;
-        padding: 12px;
-        background: #F6FBFF;
+      .step-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 4px 10px rgba(74, 90, 102, 0.05);
       }
 
-      .flow-no {
-        display: inline-flex;
+      .step-head {
+        display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .step-no {
+        display: inline-flex;
         width: 28px;
         height: 28px;
+        align-items: center;
+        justify-content: center;
         border-radius: 999px;
-        border: 1px solid #AFD0E5;
-        background: #E6F4FF;
-        color: #3F667F;
+        background: #E7F4FF;
+        border: 1px solid #AED0E5;
+        color: #3E657E;
         font-size: 12px;
         font-weight: 800;
       }
 
-      .flow p { margin: 10px 0 0; }
+      .step-title {
+        margin: 0;
+        color: var(--text-strong);
+        font-size: 18px;
+      }
 
-      .proof-box {
-        margin-top: 12px;
-        border: 1px solid #DDC2A5;
-        background: linear-gradient(135deg, var(--bg-brown-1) 0%, var(--bg-brown-2) 100%);
+      .step-desc {
+        margin: 0 0 8px;
+      }
+
+      .ipo {
+        margin: 0;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: var(--bg-soft);
+        border: 1px dashed #BED7E9;
+        color: #405867;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .diagram-wrap {
+        background: var(--white);
+        border: 1px solid var(--line);
         border-radius: 14px;
-        padding: 14px;
-        color: #5E452F;
+        padding: 12px;
+      }
+
+      .diagram-note {
+        margin: 10px 0 0;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: var(--bg-brown-1);
+        border: 1px solid #DEC5A9;
+        color: #654A31;
         font-weight: 700;
       }
 
@@ -254,6 +276,25 @@
         color: #5D6F7B;
         border-top: 1px solid #E1EAF2;
         background: #F8FCFF;
+      }
+
+      .checklist {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .check {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .check strong {
+        display: block;
+        color: var(--text-strong);
+        margin-bottom: 6px;
       }
 
       .cta {
@@ -307,9 +348,8 @@
 
       @media (max-width: 980px) {
         .hero-grid { grid-template-columns: 1fr; }
-        .card-grid { grid-template-columns: 1fr; }
-        .flow-grid { grid-template-columns: 1fr 1fr; }
         .shot-grid { grid-template-columns: 1fr; }
+        .checklist { grid-template-columns: 1fr; }
         .cta { flex-direction: column; align-items: flex-start; }
       }
 
@@ -317,7 +357,6 @@
         .topbar-inner { min-height: 60px; }
         .chip-row { display: none; }
         .stat-grid { grid-template-columns: 1fr; }
-        .flow-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -336,96 +375,143 @@
     <main class="container hero">
       <section class="hero-grid reveal">
         <div>
-          <h1>페이퍼 트레이딩 자동화<br />실전 구현 포트폴리오</h1>
+          <h1>페이퍼 트레이딩 자동화 시스템<br />설계·구현 포트폴리오</h1>
           <p class="lead">
-            이 프로젝트는 GitHub-hosted Actions로 주기 실행하고, Supabase에 상태를 기록하며,
-            Vercel에서 운영 화면을 제공하는 자동화 서비스 구현 사례입니다.
+            무엇을 구현했는가: 자동 실행·기록·조회가 연결된 운영형 페이퍼 트레이딩 시스템.
+            어떻게 구현했는가: GitHub-hosted Actions + Supabase + Vercel.
+            결과는 주기 실행 이력과 화면 증빙으로 검증 가능하게 구성했습니다.
           </p>
+          <div class="hero-role">담당 역할: 실행 파이프라인 설계, 데이터 구조 정의, 운영 화면 연동, 검증 기준 수립</div>
         </div>
         <aside class="panel">
           <div class="stat-grid">
             <div class="stat">
-              <span class="stat-key">핵심 목표</span>
-              <span class="stat-value">무중단 자동 사이클</span>
+              <span class="stat-key">구현 대상</span>
+              <span class="stat-value">페이퍼 트레이딩 자동화</span>
             </div>
             <div class="stat">
-              <span class="stat-key">스케줄 실행</span>
-              <span class="stat-value">GitHub-hosted Actions</span>
+              <span class="stat-key">실행 계층</span>
+              <span class="stat-value">Actions 스케줄 배치</span>
             </div>
             <div class="stat">
-              <span class="stat-key">상태/성과 저장</span>
-              <span class="stat-value">Supabase 테이블</span>
+              <span class="stat-key">데이터 계층</span>
+              <span class="stat-value">Supabase 상태 이력</span>
             </div>
             <div class="stat">
-              <span class="stat-key">운영 콘솔</span>
-              <span class="stat-value">Vercel 웹 화면</span>
+              <span class="stat-key">조회 계층</span>
+              <span class="stat-value">Vercel 운영 대시보드</span>
             </div>
           </div>
-          <div class="panel-note">포트폴리오 핵심: 구조를 분리해 운영 안정성과 추적 가능성을 확보</div>
+          <div class="panel-note">기술 면접관 기준: 구현 단위와 검증 단위가 분리되도록 구조화</div>
         </aside>
       </section>
 
       <section class="section reveal">
-        <h2>무엇을 만들었는가</h2>
-        <div class="card-grid">
-          <article class="card">
-            <h3>자동 실행 파이프라인</h3>
-            <p>정해진 주기에 배치를 실행해 모델 계산과 상태 갱신을 반복합니다.</p>
+        <h2>Step 1~5 구현 흐름</h2>
+        <div class="step-grid">
+          <article class="step-card">
+            <div class="step-head"><span class="step-no">1</span><h3 class="step-title">문제 정의: 수동 운영 한계 식별</h3></div>
+            <p class="step-desc">수동 실행 방식은 주기 누락과 상태 추적 단절이 발생해 운영 신뢰도가 낮았습니다.</p>
+            <p class="ipo">입력: 수동 실행 이슈 / 처리: 자동화 대상 식별 / 산출: 주기 실행 필요조건 정의</p>
           </article>
-          <article class="card">
-            <h3>상태/이력 관리</h3>
-            <p>하트비트, 모델 설정, 포지션, 일일 성과를 테이블로 분리해 저장합니다.</p>
+          <article class="step-card">
+            <div class="step-head"><span class="step-no">2</span><h3 class="step-title">실행 파이프라인 설계</h3></div>
+            <p class="step-desc">GitHub-hosted Actions 스케줄 기반으로 배치 진입점을 고정해 반복 실행 구조를 만들었습니다.</p>
+            <p class="ipo">입력: 스케줄 조건 / 처리: 배치 트리거 및 실행 / 산출: 자동 사이클 수행 로그</p>
           </article>
-          <article class="card">
-            <h3>운영 확인 화면</h3>
-            <p>서비스 운영에 필요한 핵심 상태를 웹 화면에서 바로 점검할 수 있게 구성했습니다.</p>
+          <article class="step-card">
+            <div class="step-head"><span class="step-no">3</span><h3 class="step-title">데이터 모델링 및 추적 기준</h3></div>
+            <p class="step-desc">하트비트·설정·포지션·일일 성과를 분리 저장해 변경 이력과 상태 검증이 가능하도록 구성했습니다.</p>
+            <p class="ipo">입력: 실행 결과 데이터 / 처리: 테이블별 정규 저장 / 산출: 추적 가능한 상태 이력</p>
+          </article>
+          <article class="step-card">
+            <div class="step-head"><span class="step-no">4</span><h3 class="step-title">운영 UI 구성</h3></div>
+            <p class="step-desc">Vercel 대시보드에서 실행 상태, 포지션, 성과 지표를 한 화면에서 확인하도록 구성했습니다.</p>
+            <p class="ipo">입력: Supabase 기록 / 처리: 조회 화면 매핑 / 산출: 운영 판단용 대시보드</p>
+          </article>
+          <article class="step-card">
+            <div class="step-head"><span class="step-no">5</span><h3 class="step-title">검증 및 운영 기준 정립</h3></div>
+            <p class="step-desc">하트비트 갱신, 데이터 적재, 화면 반영 여부를 기준으로 사이클 정상 동작을 판단합니다.</p>
+            <p class="ipo">입력: 실행 후 상태 / 처리: 체크 기준 대조 / 산출: 운영 가능/조치 필요 판단</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <h2>어떻게 구성했는가</h2>
-        <div class="flow-grid">
-          <div class="flow">
-            <span class="flow-no">01</span>
-            <p>GitHub-hosted Actions 스케줄로 사이클을 트리거합니다.</p>
-          </div>
-          <div class="flow">
-            <span class="flow-no">02</span>
-            <p>배치 스크립트가 모델 상태와 포지션 데이터를 계산/갱신합니다.</p>
-          </div>
-          <div class="flow">
-            <span class="flow-no">03</span>
-            <p>결과를 Supabase에 기록해 이력과 검증 근거를 남깁니다.</p>
-          </div>
-          <div class="flow">
-            <span class="flow-no">04</span>
-            <p>Vercel 화면에서 현재 상태를 조회하고 운영 판단에 활용합니다.</p>
-          </div>
+        <h2>아키텍처 다이어그램 (증빙)</h2>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 960 260" width="100%" role="img" aria-label="Automethemoney 아키텍처 다이어그램">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L10,3 L0,6 Z" fill="#7FB3D5"></path>
+              </marker>
+            </defs>
+            <rect x="20" y="90" width="190" height="80" rx="14" fill="#F3FBFF" stroke="#CBDCEB"></rect>
+            <text x="115" y="126" text-anchor="middle" fill="#2B3A42" font-size="15" font-weight="700">GitHub-hosted Actions</text>
+            <text x="115" y="148" text-anchor="middle" fill="#4A5A66" font-size="13">스케줄 트리거</text>
+
+            <rect x="265" y="90" width="190" height="80" rx="14" fill="#F3FBFF" stroke="#CBDCEB"></rect>
+            <text x="360" y="126" text-anchor="middle" fill="#2B3A42" font-size="15" font-weight="700">Batch Script</text>
+            <text x="360" y="148" text-anchor="middle" fill="#4A5A66" font-size="13">모델/상태 계산</text>
+
+            <rect x="510" y="90" width="190" height="80" rx="14" fill="#F3FBFF" stroke="#CBDCEB"></rect>
+            <text x="605" y="126" text-anchor="middle" fill="#2B3A42" font-size="15" font-weight="700">Supabase</text>
+            <text x="605" y="148" text-anchor="middle" fill="#4A5A66" font-size="13">상태/성과 저장</text>
+
+            <rect x="755" y="90" width="185" height="80" rx="14" fill="#F6EBDD" stroke="#DEC7AD"></rect>
+            <text x="847" y="126" text-anchor="middle" fill="#2B3A42" font-size="15" font-weight="700">Vercel UI</text>
+            <text x="847" y="148" text-anchor="middle" fill="#4A5A66" font-size="13">운영 화면 조회</text>
+
+            <line x1="210" y1="130" x2="265" y2="130" stroke="#7FB3D5" stroke-width="3" marker-end="url(#arrow)"></line>
+            <line x1="455" y1="130" x2="510" y2="130" stroke="#7FB3D5" stroke-width="3" marker-end="url(#arrow)"></line>
+            <line x1="700" y1="130" x2="755" y2="130" stroke="#7FB3D5" stroke-width="3" marker-end="url(#arrow)"></line>
+
+            <text x="237" y="116" text-anchor="middle" fill="#4A5A66" font-size="12">실행</text>
+            <text x="482" y="116" text-anchor="middle" fill="#4A5A66" font-size="12">기록</text>
+            <text x="727" y="116" text-anchor="middle" fill="#4A5A66" font-size="12">조회</text>
+          </svg>
         </div>
-        <div class="proof-box">이 구조를 그대로 재현하면 자동 실행 + 기록 + 조회 흐름을 일관되게 구현할 수 있습니다.</div>
+        <p class="diagram-note">핵심 흐름: 트리거(Actions) → 계산(Batch) → 저장(Supabase) → 확인(Vercel UI)</p>
       </section>
 
       <section class="section reveal">
-        <h2>실제 구현 화면</h2>
+        <h2>실제 구현 화면 (스크린샷 증빙)</h2>
         <div class="shot-grid">
           <figure class="shot">
             <img src="./assets/screenshots/auto-trading-cover.png" alt="자동 트레이딩 커버 화면" loading="lazy" />
-            <figcaption>커버 화면: 프로젝트 개요 및 운영 포인트</figcaption>
+            <figcaption>증빙 1: 프로젝트 범위와 운영 포인트를 설명하는 커버 화면</figcaption>
           </figure>
           <figure class="shot">
             <img src="./assets/screenshots/auto-trading-dashboard.png" alt="자동 트레이딩 대시보드" loading="lazy" />
-            <figcaption>대시보드 화면: 핵심 지표와 상태를 한 번에 확인</figcaption>
+            <figcaption>증빙 2: 지표/상태를 실제로 확인하는 운영 대시보드 화면</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2>검증 체크 (운영 판단 기준)</h2>
+        <div class="checklist">
+          <article class="check">
+            <strong>스케줄 실행 여부</strong>
+            <span>최근 사이클 기준 하트비트 갱신 시간 확인</span>
+          </article>
+          <article class="check">
+            <strong>데이터 적재 여부</strong>
+            <span>모델/포지션/성과 테이블의 최신 레코드 존재 확인</span>
+          </article>
+          <article class="check">
+            <strong>대시보드 조회 여부</strong>
+            <span>UI에서 최신 상태가 정상 노출되는지 확인</span>
+          </article>
         </div>
       </section>
 
       <section class="cta reveal">
-        <strong>구현 코드와 운영 스크립트는 저장소에서 바로 확인할 수 있습니다.</strong>
+        <strong>코드, 실행 스크립트, 운영 기준은 저장소에서 바로 확인 가능합니다.</strong>
         <a href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">GitHub 저장소 열기</a>
       </section>
 
-      <p class="footer">Automethemoney · 페이퍼 트레이딩 자동화 포트폴리오</p>
+      <p class="footer">Automethemoney · 기술 면접관용 포트폴리오 랜딩</p>
     </main>
 
     <script>
@@ -437,6 +523,7 @@
           }
           return;
         }
+
         var io = new IntersectionObserver(function (entries) {
           for (var j = 0; j < entries.length; j++) {
             if (entries[j].isIntersecting) {
@@ -445,6 +532,7 @@
             }
           }
         }, { threshold: 0.12 });
+
         for (var k = 0; k < items.length; k++) {
           io.observe(items[k]);
         }
