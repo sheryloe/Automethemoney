@@ -4,7 +4,7 @@ Automethemoney는 `GitHub-hosted Actions + Supabase + Vercel` 구조로 구현�
 
 - 한 줄 소개: 자동 실행·기록·조회가 연결된 운영형 트레이딩 파이프라인 구현
 - 공개 페이지: GitHub Pages (`docs/index.html`)
-- 증빙 구성: 실제 스크린샷 2장 + 아키텍처 다이어그램 1개
+- 핵심 구성: Step 1~5 구현 흐름 + 아키텍처 다이어그램 + 실제 운용 성과
 - 디자인 톤: 하늘색 + 라이트 브라운
 
 ## 아키텍처 요약
@@ -32,26 +32,29 @@ Automethemoney는 `GitHub-hosted Actions + Supabase + Vercel` 구조로 구현�
 - Supabase 기록을 운영 대시보드 지표로 매핑
 - 입력 → 처리 → 산출: 저장 데이터 → 조회 렌더링 → 운영 판단 화면
 
-5. Step 5 검증 및 운영 기준
-- 하트비트/데이터 적재/UI 반영을 체크해 정상 동작 판정
-- 입력 → 처리 → 산출: 실행 후 상태 → 기준 대조 → 운영 가능 여부 판단
+5. Step 5 실운용 성과 추적
+- 월간/누적 수익률 집계 기준으로 운영 지속 가능성 검토
+- 입력 → 처리 → 산출: 실운용 결과 → 성과 집계 → 운영 판단 근거
 
-## 실제 구현 화면 위치
+## 실제 운용 성과
 
-- `docs/assets/screenshots/auto-trading-cover.png`
-- `docs/assets/screenshots/auto-trading-dashboard.png`
+- 실제 바이비트 계정 운용 기간: 1개월 진행 중
+- 누적 수익률: 14%
+- 3월 월간 수익: 15%
+- 4월 월간 수익(현재 진행 중): 4%
+
+## 실제 이미지 기록 현황
+
+- 현재 저장소 내 실제 이미지 파일:
+  - `docs/assets/screenshots/auto-trading-cover.png`
+  - `docs/assets/screenshots/auto-trading-dashboard.png`
+- 이번 페이지에서는 짤린 캡처 이슈로 스크린샷 섹션을 제거하고 성과 섹션으로 대체
 
 ## 배포 명령 (PowerShell)
 
 ```powershell
 cd D:\Donggri_Platform\Automethemoney
 git add docs/index.html README.md
-git commit -m "docs: 기술 면접관용 Step 1-5 포트폴리오 랜딩 고도화"
+git commit -m "docs: 성과 중심 포트폴리오 랜딩으로 갱신"
 git push origin main
 ```
-
-## 검증 체크 기준
-
-- 스케줄 실행 여부: 하트비트 최신 갱신 확인
-- 데이터 적재 여부: 핵심 테이블 최신 레코드 확인
-- 대시보드 조회 여부: UI 최신 상태 노출 확인

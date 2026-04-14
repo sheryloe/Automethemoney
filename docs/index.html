@@ -249,52 +249,39 @@
         font-weight: 700;
       }
 
-      .shot-grid {
+      .perf-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .shot {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 5px 10px rgba(74, 90, 102, 0.05);
-      }
-
-      .shot img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .shot figcaption {
-        margin: 0;
-        padding: 10px 12px;
-        font-size: 14px;
-        color: #5D6F7B;
-        border-top: 1px solid #E1EAF2;
-        background: #F8FCFF;
-      }
-
-      .checklist {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
       }
 
-      .check {
+      .perf-card {
         background: var(--white);
         border: 1px solid var(--line);
         border-radius: 12px;
         padding: 12px;
       }
 
-      .check strong {
-        display: block;
+      .perf-title {
+        font-size: 13px;
+        color: #5E7381;
+      }
+
+      .perf-value {
+        margin-top: 4px;
         color: var(--text-strong);
-        margin-bottom: 6px;
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .perf-note {
+        margin-top: 10px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid #D7C2AB;
+        background: linear-gradient(135deg, var(--bg-brown-1) 0%, var(--bg-brown-2) 100%);
+        color: #5E452F;
+        font-weight: 700;
       }
 
       .cta {
@@ -348,8 +335,7 @@
 
       @media (max-width: 980px) {
         .hero-grid { grid-template-columns: 1fr; }
-        .shot-grid { grid-template-columns: 1fr; }
-        .checklist { grid-template-columns: 1fr; }
+        .perf-grid { grid-template-columns: 1fr 1fr; }
         .cta { flex-direction: column; align-items: flex-start; }
       }
 
@@ -357,6 +343,7 @@
         .topbar-inner { min-height: 60px; }
         .chip-row { display: none; }
         .stat-grid { grid-template-columns: 1fr; }
+        .perf-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -379,9 +366,9 @@
           <p class="lead">
             무엇을 구현했는가: 자동 실행·기록·조회가 연결된 운영형 페이퍼 트레이딩 시스템.
             어떻게 구현했는가: GitHub-hosted Actions + Supabase + Vercel.
-            결과는 주기 실행 이력과 화면 증빙으로 검증 가능하게 구성했습니다.
+            결과는 주기 실행 이력과 실제 운용 수익률로 검증 가능한 형태로 정리했습니다.
           </p>
-          <div class="hero-role">담당 역할: 실행 파이프라인 설계, 데이터 구조 정의, 운영 화면 연동, 검증 기준 수립</div>
+          <div class="hero-role">담당 역할: 실행 파이프라인 설계, 데이터 구조 정의, 운영 화면 연동, 성과 추적 기준 수립</div>
         </div>
         <aside class="panel">
           <div class="stat-grid">
@@ -402,7 +389,7 @@
               <span class="stat-value">Vercel 운영 대시보드</span>
             </div>
           </div>
-          <div class="panel-note">기술 면접관 기준: 구현 단위와 검증 단위가 분리되도록 구조화</div>
+          <div class="panel-note">기술 면접관 기준: 구현 단위, 책임 단위, 성과 지표가 분리되도록 구조화</div>
         </aside>
       </section>
 
@@ -430,9 +417,9 @@
             <p class="ipo">입력: Supabase 기록 / 처리: 조회 화면 매핑 / 산출: 운영 판단용 대시보드</p>
           </article>
           <article class="step-card">
-            <div class="step-head"><span class="step-no">5</span><h3 class="step-title">검증 및 운영 기준 정립</h3></div>
-            <p class="step-desc">하트비트 갱신, 데이터 적재, 화면 반영 여부를 기준으로 사이클 정상 동작을 판단합니다.</p>
-            <p class="ipo">입력: 실행 후 상태 / 처리: 체크 기준 대조 / 산출: 운영 가능/조치 필요 판단</p>
+            <div class="step-head"><span class="step-no">5</span><h3 class="step-title">실운용 성과 추적</h3></div>
+            <p class="step-desc">주간/월간 단위 성과를 분리 관리해 자동화 구조의 실전 운용 가능성을 확인했습니다.</p>
+            <p class="ipo">입력: 실운용 결과 / 처리: 월간·누적 수익률 집계 / 산출: 성과 기반 운영 판단</p>
           </article>
         </div>
       </section>
@@ -475,35 +462,26 @@
       </section>
 
       <section class="section reveal">
-        <h2>실제 구현 화면 (스크린샷 증빙)</h2>
-        <div class="shot-grid">
-          <figure class="shot">
-            <img src="./assets/screenshots/auto-trading-cover.png" alt="자동 트레이딩 커버 화면" loading="lazy" />
-            <figcaption>증빙 1: 프로젝트 범위와 운영 포인트를 설명하는 커버 화면</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="./assets/screenshots/auto-trading-dashboard.png" alt="자동 트레이딩 대시보드" loading="lazy" />
-            <figcaption>증빙 2: 지표/상태를 실제로 확인하는 운영 대시보드 화면</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section reveal">
-        <h2>검증 체크 (운영 판단 기준)</h2>
-        <div class="checklist">
-          <article class="check">
-            <strong>스케줄 실행 여부</strong>
-            <span>최근 사이클 기준 하트비트 갱신 시간 확인</span>
+        <h2>실제 운용 성과</h2>
+        <div class="perf-grid">
+          <article class="perf-card">
+            <div class="perf-title">운용 상태</div>
+            <div class="perf-value">1개월</div>
           </article>
-          <article class="check">
-            <strong>데이터 적재 여부</strong>
-            <span>모델/포지션/성과 테이블의 최신 레코드 존재 확인</span>
+          <article class="perf-card">
+            <div class="perf-title">누적 수익률</div>
+            <div class="perf-value">14%</div>
           </article>
-          <article class="check">
-            <strong>대시보드 조회 여부</strong>
-            <span>UI에서 최신 상태가 정상 노출되는지 확인</span>
+          <article class="perf-card">
+            <div class="perf-title">3월 월간 수익</div>
+            <div class="perf-value">15%</div>
+          </article>
+          <article class="perf-card">
+            <div class="perf-title">4월 월간 수익(진행중)</div>
+            <div class="perf-value">4%</div>
           </article>
         </div>
+        <p class="perf-note">실제 바이비트 계정 기준으로 1개월째 운용 중이며, 누적 14% 수익 상태를 기록하고 있습니다.</p>
       </section>
 
       <section class="cta reveal">
