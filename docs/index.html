@@ -3,48 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automethemoney | GitHub Pages 서비스 소개</title>
+    <title>Automethemoney 포트폴리오 | 페이퍼 트레이딩 자동화</title>
     <meta
       name="description"
-      content="Google Stitch 기반 UI를 적용한 Automethemoney GitHub Pages 서비스 소개 브로셔"
+      content="GitHub-hosted Actions + Supabase + Vercel로 구축한 페이퍼 트레이딩 자동화 포트폴리오"
     />
     <meta name="theme-color" content="#EAF6FF" />
     <style>
       :root {
-        --bg-main: #eaf6ff;
-        --bg-soft: #f3fbff;
-        --bg-brown-1: #f6ebdd;
-        --bg-brown-2: #e7d2ba;
-        --text-strong: #2b3a42;
-        --text-normal: #4a5a66;
-        --line: #cbdceb;
-        --point-sky: #7fb3d5;
-        --point-brown: #c69c72;
-        --white: #ffffff;
+        --bg-main: #EAF6FF;
+        --bg-soft: #F3FBFF;
+        --bg-brown-1: #F6EBDD;
+        --bg-brown-2: #E7D2BA;
+        --text-strong: #2B3A42;
+        --text-normal: #4A5A66;
+        --line: #CBDCEB;
+        --point-sky: #7FB3D5;
+        --point-brown: #C69C72;
+        --white: #FFFFFF;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
 
       body {
         font-family: "Pretendard", "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
         color: var(--text-normal);
         background:
-          radial-gradient(circle at 12% 0%, #d8efff 0%, transparent 34%),
-          radial-gradient(circle at 95% 8%, #f2deca 0%, transparent 28%),
+          radial-gradient(circle at 10% 0%, #D8EEFF 0%, transparent 34%),
+          radial-gradient(circle at 95% 8%, #F2DEC9 0%, transparent 28%),
           var(--bg-main);
-        line-height: 1.6;
+        line-height: 1.65;
       }
 
       .container {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1140px, calc(100% - 32px));
         margin: 0 auto;
       }
 
@@ -53,12 +46,12 @@
         top: 0;
         z-index: 20;
         border-bottom: 1px solid var(--line);
-        background: rgba(243, 251, 255, 0.92);
+        background: rgba(243, 251, 255, 0.94);
         backdrop-filter: blur(8px);
       }
 
       .topbar-inner {
-        min-height: 68px;
+        min-height: 66px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -68,33 +61,34 @@
       .brand {
         color: var(--text-strong);
         font-size: 20px;
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: -0.02em;
       }
 
-      .badge-group {
+      .chip-row {
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
       }
 
-      .badge {
-        padding: 6px 10px;
+      .chip {
         border-radius: 999px;
+        padding: 6px 10px;
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
+        border: 1px solid transparent;
       }
 
-      .badge-sky {
-        color: #33536a;
-        background: #deeffb;
-        border: 1px solid #bdddf2;
+      .chip-sky {
+        background: #DEEFFB;
+        border-color: #BDDDF2;
+        color: #39556B;
       }
 
-      .badge-brown {
-        color: #6f4e2b;
-        background: #f7ebdf;
-        border: 1px solid #ebd3bb;
+      .chip-brown {
+        background: #F7EBDF;
+        border-color: #EBD3BB;
+        color: #6F4E2B;
       }
 
       .hero {
@@ -108,9 +102,9 @@
       }
 
       h1 {
-        margin: 0 0 16px;
+        margin: 0 0 14px;
         color: var(--text-strong);
-        font-size: clamp(30px, 5.6vw, 56px);
+        font-size: clamp(30px, 5.5vw, 56px);
         line-height: 1.08;
         letter-spacing: -0.04em;
       }
@@ -118,7 +112,6 @@
       .lead {
         margin: 0;
         font-size: clamp(16px, 2vw, 20px);
-        color: var(--text-normal);
       }
 
       .panel {
@@ -126,47 +119,45 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         padding: 18px;
-        box-shadow: 0 6px 14px rgba(74, 90, 102, 0.08);
+        box-shadow: 0 6px 14px rgba(74, 90, 102, 0.07);
       }
 
-      .facts {
+      .stat-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
 
-      .fact {
-        border: 1px solid #d3e3f0;
+      .stat {
+        border: 1px solid #D3E3F0;
         border-radius: 12px;
         padding: 10px;
-        background: #f9fcff;
+        background: #F9FCFF;
       }
 
-      .fact-key {
+      .stat-key {
         font-size: 12px;
-        color: #61798a;
+        color: #627A8B;
       }
 
-      .fact-value {
+      .stat-value {
         margin-top: 4px;
         color: var(--text-strong);
         font-size: 16px;
         font-weight: 800;
       }
 
-      .fact-note {
+      .panel-note {
         margin-top: 10px;
         padding: 10px 12px;
         border-radius: 12px;
-        border: 1px solid #e6cfb5;
+        border: 1px solid #E6CFB5;
         background: var(--bg-brown-1);
-        color: #70553a;
+        color: #71563A;
         font-weight: 700;
       }
 
-      .section {
-        padding: 14px 0;
-      }
+      .section { padding: 14px 0; }
 
       .section h2 {
         margin: 0 0 12px;
@@ -195,57 +186,82 @@
         font-size: 18px;
       }
 
-      .card p {
-        margin: 0;
-      }
+      .card p { margin: 0; }
 
-      .process-grid {
+      .flow-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
       }
 
-      .step {
-        border: 1px solid #d8e6f2;
+      .flow {
+        border: 1px solid #D8E6F2;
         border-radius: 12px;
         padding: 12px;
-        background: #f6fbff;
+        background: #F6FBFF;
       }
 
-      .step-no {
+      .flow-no {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         width: 28px;
         height: 28px;
         border-radius: 999px;
-        border: 1px solid #afd0e5;
-        background: #e6f4ff;
-        color: #3f667f;
+        border: 1px solid #AFD0E5;
+        background: #E6F4FF;
+        color: #3F667F;
         font-size: 12px;
         font-weight: 800;
       }
 
-      .step p {
-        margin: 10px 0 0;
-      }
+      .flow p { margin: 10px 0 0; }
 
-      .trust-box {
+      .proof-box {
         margin-top: 12px;
-        border: 1px solid #ddc2a5;
+        border: 1px solid #DDC2A5;
         background: linear-gradient(135deg, var(--bg-brown-1) 0%, var(--bg-brown-2) 100%);
         border-radius: 14px;
         padding: 14px;
-        color: #5e452f;
+        color: #5E452F;
         font-weight: 700;
+      }
+
+      .shot-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .shot {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(74, 90, 102, 0.05);
+      }
+
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .shot figcaption {
+        margin: 0;
+        padding: 10px 12px;
+        font-size: 14px;
+        color: #5D6F7B;
+        border-top: 1px solid #E1EAF2;
+        background: #F8FCFF;
       }
 
       .cta {
         margin: 18px 0 36px;
         padding: 20px;
         border-radius: 16px;
-        border: 1px solid #bfdced;
-        background: linear-gradient(120deg, #f3fbff 0%, #e8f4ff 100%);
+        border: 1px solid #BFDCED;
+        background: linear-gradient(120deg, #F3FBFF 0%, #E8F4FF 100%);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -265,16 +281,16 @@
         height: 44px;
         padding: 0 16px;
         border-radius: 10px;
-        border: 1px solid #b98f68;
+        border: 1px solid #B98F68;
         text-decoration: none;
         background: var(--point-brown);
-        color: #ffffff;
+        color: #FFFFFF;
         font-weight: 800;
       }
 
       .footer {
         margin: 0 0 30px;
-        color: #647581;
+        color: #667784;
         font-size: 14px;
       }
 
@@ -290,50 +306,29 @@
       }
 
       @media (max-width: 980px) {
-        .hero-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .card-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .process-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .cta {
-          flex-direction: column;
-          align-items: flex-start;
-        }
+        .hero-grid { grid-template-columns: 1fr; }
+        .card-grid { grid-template-columns: 1fr; }
+        .flow-grid { grid-template-columns: 1fr 1fr; }
+        .shot-grid { grid-template-columns: 1fr; }
+        .cta { flex-direction: column; align-items: flex-start; }
       }
 
       @media (max-width: 620px) {
-        .topbar-inner {
-          min-height: 60px;
-        }
-
-        .badge-group {
-          display: none;
-        }
-
-        .facts {
-          grid-template-columns: 1fr;
-        }
-
-        .process-grid {
-          grid-template-columns: 1fr;
-        }
+        .topbar-inner { min-height: 60px; }
+        .chip-row { display: none; }
+        .stat-grid { grid-template-columns: 1fr; }
+        .flow-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
     <header class="topbar">
       <div class="container topbar-inner">
-        <div class="brand">Automethemoney Service Brochure</div>
-        <div class="badge-group">
-          <span class="badge badge-sky">GitHub Pages</span>
-          <span class="badge badge-brown">Google Stitch UI</span>
+        <div class="brand">Automethemoney 포트폴리오</div>
+        <div class="chip-row">
+          <span class="chip chip-sky">GitHub-hosted Actions</span>
+          <span class="chip chip-sky">Supabase</span>
+          <span class="chip chip-brown">Vercel</span>
         </div>
       </div>
     </header>
@@ -341,124 +336,115 @@
     <main class="container hero">
       <section class="hero-grid reveal">
         <div>
-          <h1>GitHub Pages로 제공하는<br />가볍고 명확한 서비스 소개</h1>
+          <h1>페이퍼 트레이딩 자동화<br />실전 구현 포트폴리오</h1>
           <p class="lead">
-            이 페이지는 일반 방문자가 서비스 가치를 빠르게 이해하도록 구성한 브로셔입니다.
-            Google Stitch로 만든 UI를 정적으로 반영해 안정적인 공개 페이지를 운영합니다.
+            이 프로젝트는 GitHub-hosted Actions로 주기 실행하고, Supabase에 상태를 기록하며,
+            Vercel에서 운영 화면을 제공하는 자동화 서비스 구현 사례입니다.
           </p>
         </div>
         <aside class="panel">
-          <div class="facts">
-            <div class="fact">
-              <span class="fact-key">서비스 형태</span>
-              <span class="fact-value">소개형 브로셔</span>
+          <div class="stat-grid">
+            <div class="stat">
+              <span class="stat-key">핵심 목표</span>
+              <span class="stat-value">무중단 자동 사이클</span>
             </div>
-            <div class="fact">
-              <span class="fact-key">공개 채널</span>
-              <span class="fact-value">GitHub Pages</span>
+            <div class="stat">
+              <span class="stat-key">스케줄 실행</span>
+              <span class="stat-value">GitHub-hosted Actions</span>
             </div>
-            <div class="fact">
-              <span class="fact-key">디자인 반영</span>
-              <span class="fact-value">Google Stitch UI</span>
+            <div class="stat">
+              <span class="stat-key">상태/성과 저장</span>
+              <span class="stat-value">Supabase 테이블</span>
             </div>
-            <div class="fact">
-              <span class="fact-key">기술 구성</span>
-              <span class="fact-value">정적 HTML/CSS</span>
+            <div class="stat">
+              <span class="stat-key">운영 콘솔</span>
+              <span class="stat-value">Vercel 웹 화면</span>
             </div>
           </div>
-          <div class="fact-note">외부 API 없이도 전달력 있는 서비스 설명 페이지를 유지합니다.</div>
+          <div class="panel-note">포트폴리오 핵심: 구조를 분리해 운영 안정성과 추적 가능성을 확보</div>
         </aside>
       </section>
 
       <section class="section reveal">
-        <h2>왜 GitHub Pages 방식이 유리한가</h2>
+        <h2>무엇을 만들었는가</h2>
         <div class="card-grid">
           <article class="card">
-            <h3>빠른 전달</h3>
-            <p>페이지 목적을 서비스 설명에 고정해 방문자가 핵심 내용을 바로 이해합니다.</p>
+            <h3>자동 실행 파이프라인</h3>
+            <p>정해진 주기에 배치를 실행해 모델 계산과 상태 갱신을 반복합니다.</p>
           </article>
           <article class="card">
-            <h3>안정적 운영</h3>
-            <p>정적 파일 중심으로 구성해 운영 복잡도를 낮추고 장애 요인을 줄입니다.</p>
+            <h3>상태/이력 관리</h3>
+            <p>하트비트, 모델 설정, 포지션, 일일 성과를 테이블로 분리해 저장합니다.</p>
           </article>
           <article class="card">
-            <h3>쉬운 갱신</h3>
-            <p>`docs/index.html`만 수정하면 최신 소개 문구와 UI를 빠르게 반영할 수 있습니다.</p>
+            <h3>운영 확인 화면</h3>
+            <p>서비스 운영에 필요한 핵심 상태를 웹 화면에서 바로 점검할 수 있게 구성했습니다.</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <h2>Stitch UI 반영 프로세스</h2>
-        <div class="process-grid">
-          <div class="step">
-            <span class="step-no">01</span>
-            <p>Google Stitch에서 서비스 소개 UI를 생성합니다.</p>
+        <h2>어떻게 구성했는가</h2>
+        <div class="flow-grid">
+          <div class="flow">
+            <span class="flow-no">01</span>
+            <p>GitHub-hosted Actions 스케줄로 사이클을 트리거합니다.</p>
           </div>
-          <div class="step">
-            <span class="step-no">02</span>
-            <p>생성 결과를 정적 HTML/CSS 형태로 정리합니다.</p>
+          <div class="flow">
+            <span class="flow-no">02</span>
+            <p>배치 스크립트가 모델 상태와 포지션 데이터를 계산/갱신합니다.</p>
           </div>
-          <div class="step">
-            <span class="step-no">03</span>
-            <p>`docs/index.html`에 카피와 레이아웃을 반영합니다.</p>
+          <div class="flow">
+            <span class="flow-no">03</span>
+            <p>결과를 Supabase에 기록해 이력과 검증 근거를 남깁니다.</p>
           </div>
-          <div class="step">
-            <span class="step-no">04</span>
-            <p>`git push`로 GitHub Pages에 즉시 공개합니다.</p>
+          <div class="flow">
+            <span class="flow-no">04</span>
+            <p>Vercel 화면에서 현재 상태를 조회하고 운영 판단에 활용합니다.</p>
           </div>
         </div>
+        <div class="proof-box">이 구조를 그대로 재현하면 자동 실행 + 기록 + 조회 흐름을 일관되게 구현할 수 있습니다.</div>
       </section>
 
       <section class="section reveal">
-        <h2>신뢰 포인트</h2>
-        <div class="card-grid">
-          <article class="card">
-            <h3>구성 단순화</h3>
-            <p>배포 경로를 단순하게 유지해 운영 리스크를 최소화합니다.</p>
-          </article>
-          <article class="card">
-            <h3>메시지 일관성</h3>
-            <p>방문자에게 노출되는 콘텐츠를 서비스 가치 전달 중심으로 고정합니다.</p>
-          </article>
-          <article class="card">
-            <h3>운영 지속성</h3>
-            <p>디자인과 문구 교체가 쉬워 홍보 업데이트를 빠르게 반복할 수 있습니다.</p>
-          </article>
+        <h2>실제 구현 화면</h2>
+        <div class="shot-grid">
+          <figure class="shot">
+            <img src="./assets/screenshots/auto-trading-cover.png" alt="자동 트레이딩 커버 화면" loading="lazy" />
+            <figcaption>커버 화면: 프로젝트 개요 및 운영 포인트</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/screenshots/auto-trading-dashboard.png" alt="자동 트레이딩 대시보드" loading="lazy" />
+            <figcaption>대시보드 화면: 핵심 지표와 상태를 한 번에 확인</figcaption>
+          </figure>
         </div>
-        <div class="trust-box">운영 정책: GitHub Pages 단일 채널 + Stitch UI 반영 + 정적 브로셔 유지</div>
       </section>
 
       <section class="cta reveal">
-        <strong>서비스 상세와 업데이트 이력은 저장소에서 확인할 수 있습니다.</strong>
-        <a href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">GitHub 저장소 이동</a>
+        <strong>구현 코드와 운영 스크립트는 저장소에서 바로 확인할 수 있습니다.</strong>
+        <a href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">GitHub 저장소 열기</a>
       </section>
 
-      <p class="footer">Automethemoney · GitHub Pages Service Brochure · Sky Blue + Light Brown UI</p>
+      <p class="footer">Automethemoney · 페이퍼 트레이딩 자동화 포트폴리오</p>
     </main>
 
     <script>
       (function () {
-        var items = document.querySelectorAll(".reveal");
-        if (!("IntersectionObserver" in window)) {
+        var items = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
           for (var i = 0; i < items.length; i++) {
-            items[i].classList.add("show");
+            items[i].classList.add('show');
           }
           return;
         }
-
-        var io = new IntersectionObserver(
-          function (entries) {
-            for (var j = 0; j < entries.length; j++) {
-              if (entries[j].isIntersecting) {
-                entries[j].target.classList.add("show");
-                io.unobserve(entries[j].target);
-              }
+        var io = new IntersectionObserver(function (entries) {
+          for (var j = 0; j < entries.length; j++) {
+            if (entries[j].isIntersecting) {
+              entries[j].target.classList.add('show');
+              io.unobserve(entries[j].target);
             }
-          },
-          { threshold: 0.12 }
-        );
-
+          }
+        }, { threshold: 0.12 });
         for (var k = 0; k < items.length; k++) {
           io.observe(items[k]);
         }

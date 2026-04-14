@@ -1,47 +1,44 @@
-﻿# Automethemoney GitHub Pages 서비스 소개 가이드
+﻿# Automethemoney 포트폴리오 가이드
 
-Automethemoney는 `GitHub Pages + Google Stitch UI + 정적 HTML/CSS` 기반의 서비스 소개 브로셔로 운영한다.
+Automethemoney는 `GitHub-hosted Actions + Supabase + Vercel` 구조로 구현한 페이퍼 트레이딩 자동화 포트폴리오다.
 
-- 목적: 일반 방문자 대상 서비스 설명
-- 채널: GitHub Pages 단일 운영
-- 정책: API/백엔드/Actions 미사용
-- 메인 편집 파일: `docs/index.html`
-- 컬러 가이드: 하늘색 + 라이트 브라운 팔레트 고정
+- 목적: 자동 실행 + 상태 저장 + 운영 조회를 분리한 서비스 구조를 실제로 구현
+- 공개 페이지: GitHub Pages (`docs/index.html`)
+- 페이지 성격: 포트폴리오 소개 + 실제 구현 화면 스크린샷
+- 디자인 톤: 하늘색 + 라이트 브라운
 
-## 핵심 운영 방식
+## 프로젝트 구조 요약
 
-1. Google Stitch에서 서비스 소개 UI 생성
-2. 결과를 정적 HTML/CSS로 정리
-3. `docs/index.html`에 반영
-4. `git push` 후 GitHub Pages 공개
+1. `GitHub-hosted Actions`
+- 주기 실행으로 배치 사이클 트리거
 
-## GitHub Pages 설정
+2. `Supabase`
+- 하트비트/모델 설정/포지션/일일 성과 이력 저장
 
-1. 저장소 `Settings > Pages`
-2. `Source = Deploy from a branch`
-3. `Branch = main`, `Folder = /docs`
-4. 저장
+3. `Vercel`
+- 운영 화면 제공 및 상태 조회
 
-배포 URL:
+## GitHub Pages 반영 방식
+
+1. `docs/index.html` 포트폴리오 내용 수정
+2. `docs/assets/screenshots/` 스크린샷 교체 또는 추가
+3. 커밋/푸시 후 Pages 반영 확인
+
+서비스 주소:
 
 - `https://sheryloe.github.io/Automethemoney/`
-
-## 유지관리 최소 가이드
-
-변경 대상은 `docs/index.html` 중심으로 유지한다.
-
-- 서비스 소개 문구
-- 브로셔 섹션 순서
-- 하늘색/라이트 브라운 UI 스타일
-- CTA 버튼 링크
 
 ## 배포 명령 (PowerShell)
 
 ```powershell
 cd D:\Donggri_Platform\Automethemoney
-git add docs/index.html README.md
-git commit -m "docs: refresh GitHub Pages service brochure"
+git add docs/index.html README.md docs/assets/screenshots
+git commit -m "docs: 포트폴리오 페이지 및 스크린샷 갱신"
 git push origin main
 ```
 
-이 저장소는 GitHub Pages 서비스 소개 브로셔 용도로만 운영한다.
+## 유지관리 원칙
+
+- 소개 문구는 "무엇을 만들었는가 / 어떻게 구성했는가 / 실제 화면" 순서 유지
+- 스크린샷은 실제 구현 화면만 사용
+- 페이지는 포트폴리오 설명 목적에 집중
