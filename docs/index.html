@@ -1,264 +1,478 @@
-<!doctype html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Automethemoney | Trading Service Hub</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automethemoney | GitHub Pages 브로셔</title>
+    <meta
+      name="description"
+      content="Google Stitch UI 컨셉으로 제작된 Automethemoney 홍보용 정적 GitHub Pages 브로셔"
+    />
+    <meta name="theme-color" content="#0b1324" />
+    <style>
+      :root {
+        --bg: #f2f5fa;
+        --surface: #ffffff;
+        --ink-strong: #0b1324;
+        --ink: #22314d;
+        --ink-soft: #5c6c89;
+        --line: #d9e2ef;
+        --brand: #0f766e;
+        --brand-strong: #115e59;
+        --accent: #e8fbf8;
+        --warn: #fff8e6;
+        --radius-xl: 24px;
+        --radius-lg: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Pretendard", "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 0%, #d4f3ff 0%, transparent 30%),
+          radial-gradient(circle at 100% 10%, #ffeccc 0%, transparent 26%),
+          var(--bg);
+        line-height: 1.6;
+      }
+
+      .wrap {
+        width: min(1140px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .top {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background: rgba(242, 245, 250, 0.88);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .top-inner {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .logo {
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--ink-strong);
+      }
+
+      .chip-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .chip {
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+
+      .chip-brand {
+        background: #d1fae5;
+        color: #065f46;
+        border-color: #a7f3d0;
+      }
+
+      .chip-safe {
+        background: #ecfeff;
+        color: #155e75;
+        border-color: #bae6fd;
+      }
+
+      .hero {
+        padding: 70px 0 28px;
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 18px;
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        color: var(--ink-strong);
+        font-size: clamp(31px, 5.8vw, 58px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+
+      .hero-lead {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: clamp(16px, 2.1vw, 20px);
+      }
+
+      .surface {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+      }
+
+      .matrix {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .cell {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .cell .k {
+        display: block;
+        font-size: 12px;
+        color: var(--ink-soft);
+      }
+
+      .cell .v {
+        display: block;
+        margin-top: 4px;
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--ink-strong);
+      }
+
+      .note {
+        margin-top: 10px;
+        border-radius: 12px;
+        border: 1px solid #bbf7d0;
+        background: #ecfdf5;
+        color: #166534;
+        font-weight: 700;
+        padding: 10px 12px;
+      }
+
+      .section {
+        padding: 14px 0;
+      }
+
+      .section-title {
+        margin: 0 0 12px;
+        color: var(--ink-strong);
+        font-size: clamp(23px, 4vw, 32px);
+        letter-spacing: -0.03em;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        color: var(--ink-strong);
+        font-size: 18px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--ink-soft);
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .step {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+      }
+
+      .step-id {
+        display: inline-flex;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--brand-strong);
+        background: var(--accent);
+        border: 1px solid #a7f3d0;
+      }
+
+      .step p {
+        margin: 10px 0 0;
+        color: var(--ink-soft);
+      }
+
+      .banner {
+        margin-top: 14px;
+        border: 1px solid #fde68a;
+        background: var(--warn);
+        color: #92400e;
+        border-radius: 14px;
+        padding: 13px;
+        font-weight: 700;
+      }
+
+      .cta {
+        margin: 18px 0 38px;
+        padding: 22px;
+        border-radius: 18px;
+        border: 1px solid #99f6e4;
+        background: linear-gradient(120deg, #ccfbf1 0%, #ecfeff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .cta strong {
+        color: #134e4a;
+        font-size: 19px;
+        letter-spacing: -0.02em;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 16px;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+        background: var(--brand);
+        color: #ffffff;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .footer {
+        margin: 0 0 32px;
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 980px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .flow {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .cta {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .top-inner {
+          min-height: 60px;
+        }
+
+        .chip-row {
+          display: none;
+        }
+
+        .matrix {
+          grid-template-columns: 1fr;
+        }
+
+        .flow {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-    <main class="page-shell">
-      <header class="hero card">
-        <p class="eyebrow">Automethemoney Hub</p>
-        <h1>Paper trading service on GitHub-hosted Actions + Supabase + Vercel</h1>
-        <p class="lede">
-          This hub explains how the service runs, what each model does, and how to deploy and verify the stack.
-          Runtime execution is fixed to GitHub hosted runners, with state persisted in Supabase and operator UI on Vercel.
-        </p>
-        <div class="hero-links">
-          <a href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">Repository</a>
-          <a href="https://github.com/sheryloe/Automethemoney/wiki" target="_blank" rel="noreferrer">Wiki</a>
-          <a href="https://automethemoney.vercel.app" target="_blank" rel="noreferrer">Vercel Console</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <div class="logo">Automethemoney Brochure</div>
+        <div class="chip-row">
+          <span class="chip chip-brand">Google Stitch UI</span>
+          <span class="chip chip-safe">API 연동 없음</span>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <section class="status-grid">
-        <article class="card stat">
-          <span>Heartbeat (KST)</span>
-          <strong id="hb-time">-</strong>
-          <small id="hb-engine">-</small>
-        </article>
-        <article class="card stat">
-          <span>Runner</span>
-          <strong id="hb-runner">-</strong>
-          <small id="hb-mode">-</small>
-        </article>
-        <article class="card stat">
-          <span>Latest Signals</span>
-          <strong id="latest-signals">0</strong>
-          <small id="latest-cycle">cycle -</small>
-        </article>
-        <article class="card stat">
-          <span>Open Positions</span>
-          <strong id="open-positions">0</strong>
-          <small>positions(status=open)</small>
-        </article>
-        <article class="card stat">
-          <span>Bybit Sync</span>
-          <strong id="bybit-sync">-</strong>
-          <small id="bybit-sync-ts">ts 0</small>
-        </article>
-        <article class="card stat">
-          <span>Latest Realized PnL</span>
-          <strong id="latest-realized">$0.00</strong>
-          <small id="latest-pnl-day">day -</small>
-        </article>
-      </section>
-
-      <section class="card section">
-        <div class="section-head">
-          <p class="eyebrow">Model lineup</p>
-          <h2>A/B/C/D strategy overview</h2>
-        </div>
-        <div class="model-grid">
-          <article>
-            <h3>Model A</h3>
-            <p>Trend-following profile. Prioritizes directional continuation after structural confirmation.</p>
-          </article>
-          <article>
-            <h3>Model B</h3>
-            <p>Mean-reversion profile. Focuses on pullback recovery zones and volatility normalization.</p>
-          </article>
-          <article>
-            <h3>Model C</h3>
-            <p>Breakout profile. Uses range expansion and momentum acceleration for entry timing.</p>
-          </article>
-          <article>
-            <h3>Model D</h3>
-            <p>Adaptive profile. Uses runtime tuning with stricter drawdown controls and fast reconfiguration.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="card section">
-        <div class="section-head">
-          <p class="eyebrow">Service flow</p>
-          <h2>How the service is delivered</h2>
-        </div>
-        <ol class="flow-list">
-          <li>Market data and context are collected from exchange/public sources.</li>
-          <li>Models A/B/C/D generate setups and signal audit records per cycle.</li>
-          <li>Paper positions and PnL are updated and written to Supabase.</li>
-          <li>Vercel console and this hub read the latest state for operators.</li>
-        </ol>
-      </section>
-
-      <section class="card section split">
+    <main class="wrap hero">
+      <section class="hero-layout reveal">
         <div>
-          <div class="section-head">
-            <p class="eyebrow">Hosted setup</p>
-            <h2>Build and operate (PowerShell)</h2>
+          <h1>홍보용 브로셔를<br />가장 안정적으로 운영하는 방식</h1>
+          <p class="hero-lead">
+            Automethemoney는 GitHub Pages의 `docs` 폴더만 사용합니다.
+            Google Stitch로 만든 UI를 정적 HTML/CSS로 반영하고, 백엔드/API 없이
+            빠르게 공개 페이지를 운영합니다.
+          </p>
+        </div>
+        <div class="surface">
+          <div class="matrix">
+            <div class="cell">
+              <span class="k">사이트 유형</span>
+              <span class="v">브로셔 전용</span>
+            </div>
+            <div class="cell">
+              <span class="k">배포 방식</span>
+              <span class="v">GitHub Pages</span>
+            </div>
+            <div class="cell">
+              <span class="k">콘텐츠 위치</span>
+              <span class="v">`docs/index.html`</span>
+            </div>
+            <div class="cell">
+              <span class="k">자동화 방식</span>
+              <span class="v">WSL cron</span>
+            </div>
           </div>
-<pre><code>python -m pip install --upgrade pip
-pip install -r .\requirements.txt
-
-# Run one hosted cycle
-.\ops\run-once-cloud-cycle.ps1 -Repo "sheryloe/Automethemoney" -Workflow "cloud-cycle.yml" -Ref "main"
-
-# Verify state writes
-.\ops\verify-stack.ps1 -EnvFile ".\.env" -LookbackHours 1 -ExpectedRunner "github-hosted"</code></pre>
+          <div class="note">운영 기준: 정적 파일만 유지, 액션/서버 미사용</div>
         </div>
-        <div>
-          <div class="section-head">
-            <p class="eyebrow">Required secrets</p>
-            <h2>Minimum configuration</h2>
+      </section>
+
+      <section class="section reveal">
+        <h2 class="section-title">핵심 가치</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>빠른 수정</h3>
+            <p>문구/섹션/디자인 변경을 `index.html` 한 파일 기준으로 즉시 반영합니다.</p>
+          </article>
+          <article class="card">
+            <h3>낮은 장애 위험</h3>
+            <p>외부 API, 인증, 서버 장애 요소를 제거해 노출 페이지 안정성을 높입니다.</p>
+          </article>
+          <article class="card">
+            <h3>운영 단순화</h3>
+            <p>배포 경로를 `main + /docs`로 고정해 유지보수 비용을 최소화합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2 class="section-title">Google Stitch 반영 플로우</h2>
+        <div class="flow">
+          <div class="step">
+            <span class="step-id">01</span>
+            <p>Google Stitch에서 브로셔 UI 생성</p>
           </div>
-          <ul class="bullet-list">
-            <li>GitHub Secrets: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SERVICE_MASTER_KEY`, `BYBIT_API_KEY`, `BYBIT_API_SECRET`</li>
-            <li>Vercel Env: Supabase URL/keys + `SERVICE_MASTER_KEY` + `SERVICE_ADMIN_TOKEN`</li>
-            <li>Runtime policy: `TRADE_MODE=paper`, live execution flags disabled, readonly Bybit sync enabled</li>
-          </ul>
+          <div class="step">
+            <span class="step-id">02</span>
+            <p>정적 HTML/CSS 형태로 결과 정리</p>
+          </div>
+          <div class="step">
+            <span class="step-id">03</span>
+            <p>`docs/index.html`에 디자인/카피 반영</p>
+          </div>
+          <div class="step">
+            <span class="step-id">04</span>
+            <p>`git push` 후 GitHub Pages 자동 공개</p>
+          </div>
+        </div>
+        <div class="banner">
+          현재 구성은 홍보용에 최적화되어 있으며, API 연동 없이도 디자인 전달력이 유지됩니다.
         </div>
       </section>
 
-      <section class="card section">
-        <div class="section-head">
-          <p class="eyebrow">Console samples</p>
-          <h2>Current UI snapshots</h2>
-        </div>
-        <div class="gallery-grid">
-          <figure>
-            <img src="assets/screenshots/auto-trading-cover.png" alt="Cover preview" />
-            <figcaption>Service cover</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/screenshots/auto-trading-dashboard.png" alt="Dashboard preview" />
-            <figcaption>Dashboard sample</figcaption>
-          </figure>
+      <section class="section reveal">
+        <h2 class="section-title">운영 규칙</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>콘텐츠 범위</h3>
+            <p>랜딩 소개, 가치 제안, 사용 흐름, CTA 중심 구성만 유지합니다.</p>
+          </article>
+          <article class="card">
+            <h3>기술 범위</h3>
+            <p>HTML/CSS/소량 JS만 사용하고, 프레임워크/런타임 의존을 두지 않습니다.</p>
+          </article>
+          <article class="card">
+            <h3>자동화 범위</h3>
+            <p>GitHub Actions 대신 WSL cron으로 정적 변경 커밋/푸시만 수행합니다.</p>
+          </article>
         </div>
       </section>
 
-      <section class="card section">
-        <div class="section-head">
-          <p class="eyebrow">Bybit preflight</p>
-          <h2>Network and auth diagnostics</h2>
-        </div>
-        <table class="diag-table">
-          <tbody>
-            <tr><th>public_status</th><td id="preflight-public">-</td></tr>
-            <tr><th>auth_status</th><td id="preflight-auth">-</td></tr>
-            <tr><th>error</th><td id="preflight-error">-</td></tr>
-          </tbody>
-        </table>
+      <section class="cta reveal">
+        <strong>다음 수정도 동일 방식으로 진행: Stitch UI 생성 → `docs/index.html` 반영 → 배포</strong>
+        <a class="btn" href="https://github.com/sheryloe/Automethemoney" target="_blank" rel="noreferrer">저장소 열기</a>
       </section>
+
+      <p class="footer">Automethemoney · Static GitHub Pages Brochure · Built for clarity and stability</p>
     </main>
 
     <script>
-      const SUPABASE_URL = "{{SUPABASE_URL}}";
-      const SUPABASE_ANON_KEY = "{{SUPABASE_ANON_KEY}}";
-
-      const $ = (id) => document.getElementById(id);
-      const formatInt = (v) => new Intl.NumberFormat("en-US").format(Number(v || 0));
-      const formatMoney = (v) => new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 2,
-      }).format(Number(v || 0));
-
-      const formatKst = (isoText) => {
-        if (!isoText) return "-";
-        const d = new Date(isoText);
-        if (Number.isNaN(d.getTime())) return "-";
-        return new Intl.DateTimeFormat("ko-KR", {
-          timeZone: "Asia/Seoul",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        }).format(d);
-      };
-
-      function pickLatestDaily(rows) {
-        const map = new Map();
-        for (const row of rows || []) {
-          const model = String(row?.model_id || "").trim().toUpperCase();
-          if (!model) continue;
-          const prev = map.get(model);
-          const day = String(row?.day || "");
-          const prevDay = String(prev?.day || "");
-          const updated = String(row?.updated_at || "");
-          const prevUpdated = String(prev?.updated_at || "");
-          const newer = !prev || day > prevDay || (day === prevDay && updated > prevUpdated);
-          if (newer) map.set(model, row);
-        }
-        return Array.from(map.values());
-      }
-
-      async function loadHub() {
-        if (!SUPABASE_URL || !SUPABASE_ANON_KEY || SUPABASE_URL.includes("{{") || SUPABASE_ANON_KEY.includes("{{")) {
-          $("preflight-error").textContent = "Supabase public config is not injected";
-          return;
-        }
-
-        const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        const [hbRes, posRes, setupHeadRes, dailyRes] = await Promise.all([
-          client.from("engine_heartbeat").select("*").order("updated_at", { ascending: false }).limit(1),
-          client.from("positions").select("id", { count: "exact", head: true }).eq("status", "open"),
-          client.from("model_setups").select("cycle_at").order("cycle_at", { ascending: false }).limit(1),
-          client.from("daily_model_pnl").select("model_id,day,total_pnl_usd,realized_pnl_usd,updated_at").order("day", { ascending: false }).limit(64),
-        ]);
-
-        if (hbRes.error) {
-          $("preflight-error").textContent = hbRes.error.message;
-          return;
-        }
-
-        const heartbeat = hbRes.data?.[0] || null;
-        const meta = heartbeat?.meta_json || {};
-
-        let latestSignalCount = 0;
-        let latestCycleAt = "";
-        if (!setupHeadRes.error) {
-          latestCycleAt = setupHeadRes.data?.[0]?.cycle_at || "";
-          if (latestCycleAt) {
-            const setupCountRes = await client
-              .from("model_setups")
-              .select("id", { count: "exact", head: true })
-              .eq("cycle_at", latestCycleAt);
-            if (!setupCountRes.error) latestSignalCount = Number(setupCountRes.count || 0);
+      (function () {
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+          for (var i = 0; i < els.length; i++) {
+            els[i].classList.add('show');
           }
+          return;
         }
 
-        const latestDailyRows = pickLatestDaily(dailyRes.data || []);
-        const latestRealizedTotal = latestDailyRows.reduce((sum, row) => sum + Number(row?.realized_pnl_usd || 0), 0);
-        const latestDay = latestDailyRows.map((r) => String(r?.day || "")).sort().pop() || "-";
+        var observer = new IntersectionObserver(
+          function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting) {
+                entries[i].target.classList.add('show');
+                observer.unobserve(entries[i].target);
+              }
+            }
+          },
+          { threshold: 0.12 }
+        );
 
-        $("hb-time").textContent = formatKst(heartbeat?.last_seen_at);
-        $("hb-engine").textContent = heartbeat?.engine_name || "-";
-        $("hb-runner").textContent = String(meta.runner || "-");
-        $("hb-mode").textContent = `trade_mode=${String(meta.trade_mode || "-")}`;
-        $("open-positions").textContent = formatInt(posRes.count || 0);
-        $("latest-signals").textContent = formatInt(latestSignalCount);
-        $("latest-cycle").textContent = latestCycleAt ? `cycle ${formatKst(latestCycleAt)}` : "cycle -";
-
-        const bybitReadonly = String(meta.bybit_readonly_sync || "false").toLowerCase() === "true";
-        $("bybit-sync").textContent = bybitReadonly ? "ON (read-only)" : "OFF";
-        $("bybit-sync-ts").textContent = `ts ${Number(meta.last_bybit_sync_ts || 0)}`;
-
-        $("latest-realized").textContent = formatMoney(latestRealizedTotal);
-        $("latest-pnl-day").textContent = `day ${latestDay}`;
-
-        $("preflight-public").textContent = String(meta.bybit_preflight_public_status ?? "-");
-        $("preflight-auth").textContent = String(meta.bybit_preflight_auth_status ?? "-");
-        $("preflight-error").textContent = String(meta.bybit_preflight_error || "-");
-      }
-
-      loadHub();
-      setInterval(loadHub, 15000);
+        for (var j = 0; j < els.length; j++) {
+          observer.observe(els[j]);
+        }
+      })();
     </script>
   </body>
 </html>
